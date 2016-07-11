@@ -1,0 +1,72 @@
+
+Name: Pragyan Debadarshini for the Tophatter challenge.
+
+This program completes the Minesweeper challenge in Java.
+
+MinesConsole.java: Implements the command line console for solving manually.
+Also lets you run the algorithmic solver at any time on the given problem.
+
+The game:
+------------
+Minesweeper.java: Implements the basic game logic, including uncovering a cell, computing win / loss results.
+Cell.java: Represents a single matrix cell for the Minesweeper game.
+
+Solver:
+Solver.java: Implements the algorithmic solver. Can be run on a single problem instance on the command line
+or in a "no-console" mode for batch processing.
+
+Console mode:
+---------------
+
+ javac MinesConsole
+ 
+ java MinesConsole --gridSize 10 --numberOfMines 10
+
+Command line interface:
+------------------------
+
+ In the console mode, you will see a output like this below:
+
+Setting gridSize to: 10
+Unknown argument: --numberOfMines
+Mis-matched argument: 10
+Created board with gridsize = 10 and number of mines = 10
+     0   1   2   3   4   5   6   7   8   9   
+
+0    X   X   X   X   X   X   X   X   X   X   
+1    X   X   X   X   X   X   X   X   X   X   
+2    X   X   X   X   X   X   X   X   X   X   
+3    X   X   X   X   X   X   X   X   X   X   
+4    X   X   X   X   X   X   X   X   X   X   
+5    X   X   X   X   X   X   X   X   X   X   
+6    X   X   X   X   X   X   X   X   X   X   
+7    X   X   X   X   X   X   X   X   X   X   
+8    X   X   X   X   X   X   X   X   X   X   
+9    X   X   X   X   X   X   X   X   X   X   
+
+>>
+
+At the prompt above ">>" you can enter the following commands:
+
+ e X Y  -- exposes cell at row X column Y
+ quit   -- quits the console, ending the game.
+ expose_all -- quits the game and shows exposes all the cells.
+ solve -- runs the algorithmic solver starting from the current state of the game.
+
+No console mode (algorithmic solver in batch mode):
+----------------------------------------------------
+
+ This mode can be used for large runs, such as using the run_benchmark.sh script.
+
+ java MinesConsole --gridSize 10 --numberOfMines 10 --noconsole
+
+Results of running on ~100K runs:
+----------------------------------
+ Results.log contains the results of running the batch script run_benchmark.sh.
+Summary of the results:
+
+-------------------------------------------------
+Wins = 78218 out of 100021, win percentage = 78.2
+-------------------------------------------------
+Average time in milliseconds when winning: 9.46019
+Average time in milliseconds when losing: 3.0889
